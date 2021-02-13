@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    tools:context=".ShoppingItems">
+
+
+    <Button
+        android:id="@+id/button_potato"
+        android:layout_width="@dimen/width_items_default"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_items_default"
+        android:text="@string/potato"
+        android:onClick="potatoButton"/>
+
+    <Button
+        android:id="@+id/button_carrot"
+        android:layout_width="@dimen/width_items_default"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_items_default"
+        android:layout_toEndOf="@+id/button_potato"
+        android:layout_toRightOf="@+id/button_potato"
+        android:text="@string/carrot"
+        android:onClick="carrotButton"/>
+
+    <Button
+        android:id="@+id/button_pepper"
+        android:layout_width="@dimen/width_items_default"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_items_default"
+        android:layout_toRightOf="@id/button_carrot"
+        android:text="@string/pepper"
+        android:layout_toEndOf="@id/button_carrot"
+        android:onClick="pepperButton"/>
+
+    <Button
+        android:id="@+id/button_meat"
+        android:layout_width="@dimen/width_items_default"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button_potato"
+        android:layout_margin="@dimen/margin_items_default"
+        android:text="@string/meat"
+        android:onClick="meatButton"/>
+
+    <Button
+        android:id="@+id/button_fish"
+        android:layout_width="@dimen/width_items_default"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button_carrot"
+        android:layout_margin="@dimen/margin_items_default"
+        android:layout_toEndOf="@id/button_meat"
+        android:layout_toRightOf="@id/button_meat"
+        android:text="@string/fish"
+        android:onClick="fishButton"/>
+
+    <Button
+        android:id="@+id/button_sausage"
+        android:layout_width="@dimen/width_items_default"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button_pepper"
+        android:layout_margin="@dimen/margin_items_default"
+        android:layout_toEndOf="@id/button_fish"
+        android:layout_toRightOf="@id/button_fish"
+        android:text="@string/sausage"
+        android:onClick="sausageButton"/>
+
+    <Button
+        android:id="@+id/button_milk"
+        android:layout_width="@dimen/width_items_default"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button_meat"
+        android:layout_margin="@dimen/margin_items_default"
+        android:text="@string/milk"
+        android:onClick="milkButton"/>
+
+    <Button
+        android:id="@+id/button_yogurt"
+        android:layout_width="@dimen/width_items_default"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button_fish"
+        android:layout_margin="@dimen/margin_items_default"
+        android:layout_toEndOf="@id/button_milk"
+        android:layout_toRightOf="@id/button_milk"
+        android:text="@string/yogurt"
+        android:onClick="yogurtButton"/>
+
+    <Button
+        android:id="@+id/button_cheese"
+        android:layout_width="@dimen/width_items_default"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button_sausage"
+        android:layout_margin="@dimen/margin_items_default"
+        android:layout_toEndOf="@id/button_yogurt"
+        android:layout_toRightOf="@id/button_yogurt"
+        android:text="@string/cheese"
+        android:onClick="cheeseButton"/>
+
+    <Button
+        android:id="@+id/button_apple"
+        android:layout_width="@dimen/width_items_default"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button_milk"
+        android:layout_margin="@dimen/margin_items_default"
+        android:text="@string/apple"
+        android:onClick="appleButton"/>
+
+    <Button
+        android:id="@+id/button_banana"
+        android:layout_width="@dimen/width_items_default"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button_yogurt"
+        android:layout_margin="@dimen/margin_items_default"
+        android:layout_toEndOf="@id/button_apple"
+        android:layout_toRightOf="@id/button_apple"
+        android:text="@string/banana"
+        android:onClick="bananaButton"/>
+
+    <Button
+        android:id="@+id/button_orange"
+        android:layout_width="@dimen/width_items_default"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button_cheese"
+        android:layout_margin="@dimen/margin_items_default"
+        android:layout_toEndOf="@id/button_banana"
+        android:layout_toRightOf="@id/button_banana"
+        android:text="@string/orange"
+        android:onClick="orangeButton"/>
+
+
+</RelativeLayout>
