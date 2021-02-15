@@ -14,4 +14,6 @@
     <string name="pepper">Pepper</string>
     <string name="carrot">Carrot</string>
     <string name="potato">Potato</string>
+    <string name="locate_store">Locate Store</string>
+    <string name="write_a_store_here">Write a store here</string>
 </resources>

@@ -300,4 +300,9 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
+    public void locateStoreButton(View view) {
+        Intent intent = new Intent(MainActivity.this, LocateStoreActivity.class);
+        startActivity(intent);
+    }
 }
