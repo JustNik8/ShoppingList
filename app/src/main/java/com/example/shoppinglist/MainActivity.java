@@ -35,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
     TextView mItem11;
     TextView mItem12;
 
+    List<TextView> items = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +55,6 @@ public class MainActivity extends AppCompatActivity {
         mItem12 = findViewById(R.id.item12);
 
         //ArrayList for the next version
-        List<TextView> items = new ArrayList<>();
         items.add(mItem1);
         items.add(mItem2);
         items.add(mItem3);
@@ -70,77 +71,16 @@ public class MainActivity extends AppCompatActivity {
         if (savedInstanceState != null){
             Log.d(LOG_TAG, "Inside savedInstanceState != null");
 
-            boolean item1Visibility = savedInstanceState.getBoolean("item1Visibility");
-            if (item1Visibility){
-                mItem1.setVisibility(View.VISIBLE);
-                mItem1.setText(savedInstanceState.getString("item1Text"));
-                Log.d(LOG_TAG, "Inside savedInstanceState != null, savedInstanceState.getString(\"item1Text\") = " + savedInstanceState.getString("item1Text"));
-            }
-
-            boolean item2Visibility = savedInstanceState.getBoolean("item2Visibility");
-            if (item2Visibility){
-                mItem2.setVisibility(View.VISIBLE);
-                mItem2.setText(savedInstanceState.getString("item2Text"));
-            }
-
-            boolean item3Visibility = savedInstanceState.getBoolean("item3Visibility");
-            if (item3Visibility){
-                mItem3.setVisibility(View.VISIBLE);
-                mItem3.setText(savedInstanceState.getString("item3Text"));
-            }
-
-            boolean item4Visibility = savedInstanceState.getBoolean("item4Visibility");
-            if (item4Visibility){
-                mItem4.setVisibility(View.VISIBLE);
-                mItem4.setText(savedInstanceState.getString("item4Text"));
-            }
-
-            boolean item5Visibility = savedInstanceState.getBoolean("item5Visibility");
-            if (item5Visibility){
-                mItem5.setVisibility(View.VISIBLE);
-                mItem5.setText(savedInstanceState.getString("item5Text"));
-            }
-
-            boolean item6Visibility = savedInstanceState.getBoolean("item6Visibility");
-            if (item6Visibility){
-                mItem6.setVisibility(View.VISIBLE);
-                mItem6.setText(savedInstanceState.getString("item6Text"));
-            }
-
-            boolean item7Visibility = savedInstanceState.getBoolean("item7Visibility");
-            if (item7Visibility){
-                mItem7.setVisibility(View.VISIBLE);
-                mItem7.setText(savedInstanceState.getString("item7Text"));
-            }
-
-            boolean item8Visibility = savedInstanceState.getBoolean("item8Visibility");
-            if (item8Visibility){
-                mItem8.setVisibility(View.VISIBLE);
-                mItem8.setText(savedInstanceState.getString("item8Text"));
-            }
-
-            boolean item9Visibility = savedInstanceState.getBoolean("item8Visibility");
-            if (item9Visibility){
-                mItem9.setVisibility(View.VISIBLE);
-                mItem9.setText(savedInstanceState.getString("item9Text"));
-            }
-
-            boolean item10Visibility = savedInstanceState.getBoolean("item10Visibility");
-            if (item10Visibility){
-                mItem10.setVisibility(View.VISIBLE);
-                mItem10.setText(savedInstanceState.getString("item10Text"));
-            }
-
-            boolean item11Visibility = savedInstanceState.getBoolean("item11Visibility");
-            if (item11Visibility){
-                mItem11.setVisibility(View.VISIBLE);
-                mItem11.setText(savedInstanceState.getString("item11Text"));
-            }
-
-            boolean item12Visibility = savedInstanceState.getBoolean("item12Visibility");
-            if (item12Visibility){
-                mItem12.setVisibility(View.VISIBLE);
-                mItem12.setText(savedInstanceState.getString("item12Text"));
+            for (int i = 0; i < items.size(); i++){
+                TextView tv = items.get(i);
+                int numOfItem = i+1;
+                String visibilityKey = "item" + numOfItem + "Visibility";
+                String textKey = "item" + numOfItem + "Text";
+                boolean itemVisibility = savedInstanceState.getBoolean(visibilityKey);
+                if (itemVisibility){
+                    tv.setVisibility(View.VISIBLE);
+                    tv.setText(savedInstanceState.getString(textKey));
+                }
             }
         }
     }
@@ -160,79 +100,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         Log.d(LOG_TAG, "Inside onSaveInstanceState");
-        if (mItem1.getVisibility() == View.VISIBLE){
-            outState.putBoolean("item1Visibility", true);
-            outState.putString("item1Text", mItem1.getText().toString());
-            Log.d(LOG_TAG, "Inside onSavedInstanceState, Item1 and mItem1.getText() = " + mItem1.getText().toString());
-        }
-        else outState.putBoolean("item1Visibility", false);
 
-        if (mItem2.getVisibility() == View.VISIBLE){
-            outState.putBoolean("item2Visibility", true);
-            outState.putString("item2Text", mItem2.getText().toString());
+        for (int i = 0; i < items.size(); i++){
+            int numOfItem = i + 1;
+            TextView tv = items.get(i);
+            String visibilityKey = "item" + numOfItem + "Visibility";
+            String textKey = "item" + numOfItem + "Text";
+            if (tv.getVisibility() == View.VISIBLE){
+                outState.putBoolean(visibilityKey, true);
+                outState.putString(textKey, tv.getText().toString());
+            }
+            else outState.putBoolean(visibilityKey, false);
         }
-        else outState.putBoolean("item2Visibility", false);
-
-        if (mItem3.getVisibility() == View.VISIBLE){
-            outState.putBoolean("item3Visibility", true);
-            outState.putString("item3Text", mItem3.getText().toString());
-        }
-        else outState.putBoolean("item3Visibility", false);
-
-        if (mItem4.getVisibility() == View.VISIBLE){
-            outState.putBoolean("item4Visibility", true);
-            outState.putString("item4Text", mItem4.getText().toString());
-        }
-        else outState.putBoolean("item4Visibility", false);
-
-        if (mItem5.getVisibility() == View.VISIBLE){
-            outState.putBoolean("item5Visibility", true);
-            outState.putString("item5Text", mItem5.getText().toString());
-        }
-        else outState.putBoolean("item5Visibility", false);
-
-        if (mItem6.getVisibility() == View.VISIBLE){
-            outState.putBoolean("item6Visibility", true);
-            outState.putString("item6Text", mItem6.getText().toString());
-        }
-        else outState.putBoolean("item6Visibility", false);
-
-        if (mItem7.getVisibility() == View.VISIBLE){
-            outState.putBoolean("item7Visibility", true);
-            outState.putString("item7Text", mItem7.getText().toString());
-        }
-        else outState.putBoolean("item7Visibility", false);
-
-        if (mItem8.getVisibility() == View.VISIBLE){
-            outState.putBoolean("item8Visibility", true);
-            outState.putString("item8Text", mItem8.getText().toString());
-        }
-        else outState.putBoolean("item8Visibility", false);
-
-        if (mItem9.getVisibility() == View.VISIBLE){
-            outState.putBoolean("item9Visibility", true);
-            outState.putString("item9Text", mItem9.getText().toString());
-        }
-        else outState.putBoolean("item9Visibility", false);
-
-        if (mItem10.getVisibility() == View.VISIBLE){
-            outState.putBoolean("item10Visibility", true);
-            outState.putString("item10Text", mItem10.getText().toString());
-        }
-        else outState.putBoolean("item10Visibility", false);
-
-        if (mItem11.getVisibility() == View.VISIBLE){
-            outState.putBoolean("item11Visibility", true);
-            outState.putString("item11Text", mItem11.getText().toString());
-        }
-        else outState.putBoolean("item11Visibility", false);
-
-        if (mItem12.getVisibility() == View.VISIBLE){
-            outState.putBoolean("item12Visibility", true);
-            outState.putString("item12Text", mItem12.getText().toString());
-        }
-        else outState.putBoolean("item12Visibility", false);
-
     }
 
     @Override
