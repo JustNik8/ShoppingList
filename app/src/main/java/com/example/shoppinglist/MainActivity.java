@@ -35,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
     TextView mItem11;
     TextView mItem12;
 
+    int smh;
+
     List<TextView> items = new ArrayList<>();
 
     @Override
